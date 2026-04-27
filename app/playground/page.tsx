@@ -148,7 +148,7 @@ export default function PlaygroundPage() {
       const sig = await callInstruction({
         idl: parsedIdl,
         programId,
-        wallet,
+        wallet: wallet as any,
         connection,
         instructionName,
         argValues,
