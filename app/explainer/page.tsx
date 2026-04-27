@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { ClipboardPaste, Loader2, Clock, Trash2 } from "lucide-react"
-import { toast } from "sonner"
-import { Toaster } from "sonner"
+import { toast, Toaster } from "sonner"
 import { Connection } from "@solana/web3.js"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"

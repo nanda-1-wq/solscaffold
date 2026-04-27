@@ -1,10 +1,11 @@
 import { AnchorProvider, BN, Program } from '@coral-xyz/anchor'
+import type { Wallet } from '@coral-xyz/anchor'
 import { Connection, PublicKey } from '@solana/web3.js'
 
 export async function callInstruction(params: {
   idl: Record<string, unknown>
   programId: string
-  wallet: any
+  wallet: Wallet
   connection: Connection
   instructionName: string
   argValues: Record<string, string>
