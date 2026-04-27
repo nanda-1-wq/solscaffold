@@ -88,6 +88,20 @@ export default function PlaygroundPage() {
     }
   }, [])
 
+  useEffect(() => {
+    try {
+      const parsed = JSON.parse(DEFAULT_IDL)
+      const instructions = parseIDL(parsed)
+      if (instructions.length > 0) {
+        setParsedIdl(parsed)
+        setParsedInstructions(instructions)
+        setIsLegacy(isLegacyIDL(parsed))
+      }
+    } catch {
+      // ignore
+    }
+  }, [])
+
   function saveTxHistory(entries: TxEntry[]) {
     setTxHistory(entries)
     localStorage.setItem(TX_HISTORY_KEY, JSON.stringify(entries))
@@ -171,13 +185,13 @@ export default function PlaygroundPage() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] bg-zinc-950 text-zinc-100">
+    <div className="flex flex-col h-[calc(100vh-64px)] bg-zinc-950 text-zinc-100">
       <Toaster richColors position="top-right" />
 
-      <div className="flex-1 grid lg:grid-cols-[40%_60%] min-h-0">
+      <div className="flex-1 grid lg:grid-cols-[40%_60%] overflow-hidden">
         {/* Left pane */}
-        <div className="flex flex-col border-r border-zinc-800 min-h-0">
-          <div className="flex-1 min-h-0">
+        <div className="flex flex-col border-r border-zinc-800 overflow-hidden">
+          <div className="flex-1 overflow-y-auto min-h-0">
             <IdlEditor value={idlText} onChange={setIdlText} />
           </div>
 
@@ -210,7 +224,7 @@ export default function PlaygroundPage() {
         </div>
 
         {/* Right pane */}
-        <div className="flex flex-col min-h-0">
+        <div className="flex flex-col overflow-hidden">
           {!parsedInstructions ? (
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center space-y-3 text-zinc-500">
@@ -219,8 +233,8 @@ export default function PlaygroundPage() {
               </div>
             </div>
           ) : (
-            <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
-              <Tabs defaultValue={parsedInstructions[0]?.name} className="flex flex-col flex-1 min-h-0">
+            <div className="flex-1 flex flex-col overflow-hidden">
+              <Tabs defaultValue={parsedInstructions[0]?.name} className="flex flex-col flex-1 overflow-hidden">
                 <div className="border-b border-zinc-800 px-4 pt-3">
                   <TabsList className="bg-zinc-900">
                     {parsedInstructions.map((ix) => (
@@ -235,7 +249,7 @@ export default function PlaygroundPage() {
                   </TabsList>
                 </div>
 
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto min-h-0">
                   {parsedInstructions.map((ix) => (
                     <TabsContent key={ix.name} value={ix.name} className="mt-0">
                       <InstructionForm
@@ -269,9 +283,9 @@ export default function PlaygroundPage() {
                     </Button>
                   </div>
                   <div className="space-y-1">
-                    {txHistory.map((entry) => (
+                    {txHistory.map((entry, index) => (
                       <div
-                        key={entry.id}
+                        key={entry.signature || index}
                         className="flex items-center justify-between text-xs py-1"
                       >
                         <span className="font-mono text-zinc-400">{entry.instructionName}</span>

@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useNetwork } from "@/lib/solana/wallet-provider";
 
@@ -13,6 +15,10 @@ const NAV_LINKS = [
 
 export function TopNav() {
   const { network, toggleNetwork } = useNetwork();
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <header className="sticky top-0 z-50 w-full h-16 bg-zinc-950 border-b border-zinc-800 flex items-center px-6">
@@ -26,7 +32,11 @@ export function TopNav() {
             <Link
               key={href}
               href={href}
-              className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+              className={`text-sm transition-colors ${
+                pathname.startsWith(href)
+                  ? "text-zinc-100 font-medium"
+                  : "text-zinc-400 hover:text-zinc-100"
+              }`}
             >
               {label}
             </Link>
@@ -46,14 +56,18 @@ export function TopNav() {
           {network}
         </button>
 
-        <WalletMultiButton
-          style={{
-            height: "36px",
-            fontSize: "13px",
-            padding: "0 16px",
-            borderRadius: "8px",
-          }}
-        />
+        {mounted ? (
+          <WalletMultiButton
+            style={{
+              height: "36px",
+              fontSize: "13px",
+              padding: "0 16px",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          <button className="h-9 px-4 rounded-md bg-purple-600 text-white text-sm opacity-0">Loading</button>
+        )}
       </div>
     </header>
   );

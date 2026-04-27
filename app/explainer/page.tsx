@@ -122,39 +122,41 @@ export default function ExplainerPage() {
           </div>
 
           {/* Input row */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Input
               value={signature}
               onChange={(e) => setSignature(e.target.value)}
               placeholder="Enter transaction signature..."
-              className="font-mono text-sm bg-zinc-900 border-zinc-700 flex-1"
+              className="font-mono text-sm bg-zinc-900 border-zinc-700 flex-1 min-w-0"
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleExplain(signature)
               }}
             />
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handlePaste}
-              title="Paste from clipboard"
-              className="border-zinc-700 bg-zinc-900 hover:bg-zinc-800"
-            >
-              <ClipboardPaste className="w-4 h-4" />
-            </Button>
-            <Button
-              onClick={() => handleExplain(signature)}
-              disabled={loading}
-              className="bg-violet-600 hover:bg-violet-700 text-white"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Explaining…
-                </>
-              ) : (
-                "Explain"
-              )}
-            </Button>
+            <div className="flex gap-2 shrink-0">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handlePaste}
+                title="Paste from clipboard"
+                className="border-zinc-700 bg-zinc-900 hover:bg-zinc-800"
+              >
+                <ClipboardPaste className="w-4 h-4" />
+              </Button>
+              <Button
+                onClick={() => handleExplain(signature)}
+                disabled={loading}
+                className="bg-violet-600 hover:bg-violet-700 text-white"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Explaining…
+                  </>
+                ) : (
+                  "Explain"
+                )}
+              </Button>
+            </div>
           </div>
 
           {/* Error */}

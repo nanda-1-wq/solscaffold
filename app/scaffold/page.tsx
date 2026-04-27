@@ -135,7 +135,7 @@ export default function ScaffoldPage() {
             </div>
             <Button
               className="w-full"
-              disabled={!projectName}
+              disabled={projectName.trim() === ""}
               onClick={() => setStep(2)}
             >
               Next →
