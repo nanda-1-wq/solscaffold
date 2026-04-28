@@ -267,8 +267,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <Providers>
           <header className="flex items-center justify-between p-4 border-b">
             <span className="font-bold">${projectName}</span>
