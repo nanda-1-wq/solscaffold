@@ -88,10 +88,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-center text-xs text-muted-foreground py-6 border-t">
-        Built by @3Desso for 100xDevs Frontier Hackathon · Powered by Solana
-      </footer>
     </div>
   )
 }
