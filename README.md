@@ -4,7 +4,7 @@
 
 SolScaffold is an all-in-one browser-based toolkit that helps Solana developers move faster: explore transactions, scaffold full-stack dApps, interact with Anchor programs, and send SOL/USDC to `.sol` names` all without leaving the browser.
 
-**Live:** [https://solscaffold.vercel.app](https://solscaffold.vercel.app)
+**Live:** [https://solscaffold-mu.vercel.app](https://solscaffold.vercel.app)
 
 ---
 
