@@ -80,7 +80,9 @@ export function summarizeInstruction(ix: unknown, index: number): ExplainedInstr
     if (program === "system") {
       switch (parsedType) {
         case "transfer":
-          summary = `Sent ${((Number(info.lamports) || 0) / 1e9).toFixed(6)} SOL to ${short(String(info.destination ?? ""))}`
+          const solAmount = (Number(info.lamports) || 0) / 1e9
+          const solDisplay = solAmount < 0.000001 ? solAmount.toExponential(2) : solAmount.toFixed(6)
+          summary = `Sent ${solDisplay} SOL to ${short(String(info.destination ?? ""))}`
           break
         case "createAccount":
           summary = `Created account ${short(String(info.newAccount ?? ""))} (${info.space} bytes)`
