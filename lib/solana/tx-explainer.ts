@@ -80,8 +80,8 @@ export function summarizeInstruction(ix: unknown, index: number): ExplainedInstr
     if (program === "system") {
       switch (parsedType) {
         case "transfer":
-          const solAmount = (Number(info.lamports) || 0) / 1e9
-          const solDisplay = solAmount < 0.000001 ? solAmount.toExponential(2) : solAmount.toFixed(6)
+          const solAmount = Number(info.lamports ?? 0) / 1e9
+          const solDisplay = solAmount.toFixed(9).replace(/\.?0+$/, '') || '0'
           summary = `Sent ${solDisplay} SOL to ${short(String(info.destination ?? ""))}`
           break
         case "createAccount":
