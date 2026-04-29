@@ -253,7 +253,7 @@ export default function PlaygroundPage() {
                   <Alert className="mx-4 mt-3 border-zinc-700 bg-zinc-900/60">
                     <Info className="h-3.5 w-3.5 text-zinc-500" />
                     <AlertDescription className="text-zinc-500 text-xs">
-                      This is a demo IDL — the program doesn&apos;t exist on devnet. Paste your own Anchor IDL on the left to test a real program.
+                      This is a demo IDL for the Counter Program, which the program doesn&apos;t exist on devnet. Paste your own Anchor IDL on the left to test a real program.
                     </AlertDescription>
                   </Alert>
                 )}
