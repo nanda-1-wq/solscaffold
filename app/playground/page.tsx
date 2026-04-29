@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Code2, ExternalLink, Trash2 } from 'lucide-react'
+import { Code2, ExternalLink, Info, Trash2 } from 'lucide-react'
 import { toast, Toaster } from 'sonner'
 import { useAnchorWallet, useConnection } from '@solana/wallet-adapter-react'
 import { parseIDL, isLegacyIDL, ParsedInstruction } from '@/lib/anchor/idl-parser'
@@ -248,6 +248,15 @@ export default function PlaygroundPage() {
                     ))}
                   </TabsList>
                 </div>
+
+                {parsedIdl && (parsedIdl as any).address === 'CounterProgram1111111111111111111111111111111' && (
+                  <Alert className="mx-4 mt-3 border-zinc-700 bg-zinc-900/60">
+                    <Info className="h-3.5 w-3.5 text-zinc-500" />
+                    <AlertDescription className="text-zinc-500 text-xs">
+                      This is a demo IDL — the program doesn&apos;t exist on devnet. Paste your own Anchor IDL on the left to test a real program.
+                    </AlertDescription>
+                  </Alert>
+                )}
 
                 <div className="flex-1 overflow-y-auto min-h-0">
                   {parsedInstructions.map((ix) => (
