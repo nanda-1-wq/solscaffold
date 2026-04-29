@@ -60,7 +60,7 @@ export default function DocsPage() {
     <div className="min-h-screen bg-zinc-950 text-zinc-300">
       <div className="max-w-6xl mx-auto px-4 py-10 flex gap-10">
 
-        {/* Sidebar — desktop */}
+        {/* Sidebar - desktop */}
         <aside className="hidden md:block w-56 shrink-0">
           <div className="sticky top-24">
             <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4">
@@ -150,7 +150,7 @@ pnpm dev`}</CodeBlock>
                     },
                     {
                       key: "NEXT_PUBLIC_DEMO_MODE",
-                      desc: "true / false — enables mock data fallbacks",
+                      desc: "true / false - enables mock data fallbacks",
                       req: "Optional",
                     },
                   ].map((row) => (
@@ -174,7 +174,7 @@ pnpm dev`}</CodeBlock>
             <p className="text-zinc-400 leading-relaxed mb-4">
               The IDL Playground lets you interact with any Anchor program directly from the browser.
               Paste your IDL JSON, select an instruction, fill in accounts and arguments through a
-              generated form UI, and execute the transaction on devnet or mainnet — no frontend code
+              generated form UI, and execute the transaction on devnet or mainnet - no frontend code
               required. It&apos;s the fastest way to sanity-check your Anchor program during development.
             </p>
 
@@ -251,7 +251,7 @@ pnpm dev`}</CodeBlock>
 
             <p className="text-zinc-400 leading-relaxed mb-4">
               SNS (Solana Name Service) is a decentralized naming system that maps human-readable{" "}
-              <code className="text-violet-400">.sol</code> names to wallet addresses — like DNS for
+              <code className="text-violet-400">.sol</code> names to wallet addresses - like DNS for
               Solana. The SNS Send Widget lets you send SOL or USDC to any{" "}
               <code className="text-violet-400">.sol</code> name or raw public key without leaving
               the page.

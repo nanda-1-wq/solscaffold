@@ -11,13 +11,13 @@ SolScaffold is an all-in-one browser-based toolkit that helps Solana developers 
 ## Features
 
 ###  IDL Playground
-Paste any Anchor IDL, get a working form UI instantly. Select an instruction, fill in the accounts and arguments, and execute on devnet or mainnet — no frontend code required. Great for testing your Anchor programs as you build.
+Paste any Anchor IDL, get a working form UI instantly. Select an instruction, fill in the accounts and arguments, and execute on devnet or mainnet - no frontend code required. Great for testing your Anchor programs as you build.
 
 ###  Scaffold Wizard
 Generate a full Next.js 14 + Anchor monorepo in 3 steps. Pick your optional features (SNS, USDC, NFT, Token-2022, MagicBlock), and download a ready-to-go ZIP with wallets, RPC, and program integration pre-wired.
 
 ###  SNS Send Widget
-Send SOL or USDC to any `.sol` name or raw wallet address directly from the landing page. SNS resolution runs on mainnet so it works with real Bonfida names — no copy-pasting long addresses.
+Send SOL or USDC to any `.sol` name or raw wallet address directly from the landing page. SNS resolution runs on mainnet so it works with real Bonfida names - no copy-pasting long addresses.
 
 ###  Tx Explainer
 Paste any transaction signature and get a human-readable breakdown: balance changes, program logs, inner instructions, and a step-by-step timeline. Supports SPL Token, System Program, Anchor programs, and more.
@@ -44,7 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) — you're in.
 |---|---|---|
 | `NEXT_PUBLIC_RPC_URL` | Your Solana RPC URL ([Helius](https://helius.dev) recommended) | Required |
 | `NEXT_PUBLIC_NETWORK` | `devnet` or `mainnet` | Required |
-| `NEXT_PUBLIC_DEMO_MODE` | `true` or `false` — enables mock data fallbacks | Optional |
+| `NEXT_PUBLIC_DEMO_MODE` | `true` or `false` - enables mock data fallbacks | Optional |
 
 > **Tip:** Helius gives you a free RPC endpoint with high rate limits. Sign up at [helius.dev](https://helius.dev) and paste the URL into `.env.local`.
 
@@ -122,10 +122,10 @@ pnpm dev
 
 ## License
 
-MIT — free to use, modify, and ship.
+MIT - free to use, modify, and ship.
 
 ---
 
-Built by [@3Desso](https://github.com/nanda-1-wq) for the **100xDevs Frontier Hackathon 2026**.
+Built by [Nanzilla](https://github.com/nanda-1-wq) for the **100xDevs Frontier Hackathon 2026**.
 
 > _Star the repo if this helped you learn Solana_ 

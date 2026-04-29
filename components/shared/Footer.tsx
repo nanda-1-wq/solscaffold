@@ -8,7 +8,7 @@ export function Footer() {
         rel="noopener noreferrer"
         className="text-zinc-400 hover:text-zinc-200 transition-colors"
       >
-        @3Desso
+        Nanzilla
       </a>{" "}
       for 100xDevs Frontier Hackathon · Powered by Solana
     </footer>
